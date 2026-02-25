@@ -61,4 +61,23 @@ code {
   border: none;
 }
 
+/* Smooth transition */
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Light Theme */
+.light-theme {
+  background-color: #f8f9fa;
+  color: #111;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+
+
 

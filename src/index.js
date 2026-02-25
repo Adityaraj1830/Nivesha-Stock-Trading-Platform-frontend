@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AnimatePresence } from "framer-motion";
 import "./index.css";
 
 import HomePage from "./landing_page/home/HomePage";
@@ -15,18 +17,23 @@ import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <BrowserRouter>
     <Navbar />
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/products" element={<ProductPage />} />
-      <Route path="/pricing" element={<PricingPage />} />
-      <Route path="/support" element={<SupportPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+
+    <AnimatePresence mode="wait">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+
     <Footer />
   </BrowserRouter>
 );

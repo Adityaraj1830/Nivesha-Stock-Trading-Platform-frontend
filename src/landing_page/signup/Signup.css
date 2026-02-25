@@ -1,0 +1,147 @@
+/* Full screen modern gradient */
+.signup-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating background circles */
+.signup-wrapper::before,
+.signup-wrapper::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+}
+
+.signup-wrapper::before {
+  width: 300px;
+  height: 300px;
+  background: #00c6ff;
+  top: -50px;
+  left: -50px;
+}
+
+.signup-wrapper::after {
+  width: 400px;
+  height: 400px;
+  background: #ff00cc;
+  bottom: -100px;
+  right: -100px;
+}
+
+/* Glassmorphism Card */
+.signup-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 45px;
+  color: white;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  transition: 0.4s ease;
+}
+
+.signup-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Input Styling */
+.signup-card .form-control {
+  border-radius: 12px;
+  border: none;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+.signup-card .form-control:focus {
+  box-shadow: 0 0 0 3px rgba(0, 198, 255, 0.4);
+}
+
+/* Button Styling */
+.signup-btn {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 114, 255, 0.5);
+}
+
+/* Text Fix */
+.signup-card p,
+.signup-card small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Image */
+.signup-image {
+  max-width: 95%;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.otp-screen {
+  animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Overlay background */
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 999;
+}
+
+/* Modal card */
+.success-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  animation: scaleUp 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
