@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import "./Signup.css";
 import { motion } from "framer-motion";
+import { auth } from "../../firebase";
+import {
+  RecaptchaVerifier,
+  signInWithPhoneNumber
+} from "firebase/auth";
+import "./Signup.css";
 
 const Signup = () => {
-  const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
   const [otp, setOtp] = useState("");
+  const [step, setStep] = useState(1);
+  const [confirmationResult, setConfirmationResult] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // Format phone number: 98765 43210
+  // Format phone: 98765 43210
   const formatPhone = (value) => {
     const cleaned = value.replace(/\D/g, "").slice(0, 10);
     const match = cleaned.match(/^(\d{0,5})(\d{0,5})$/);
@@ -22,42 +28,80 @@ const Signup = () => {
     setMobile(formatPhone(e.target.value));
   };
 
-  const handleContinue = () => {
-    if (mobile.replace(/\s/g, "").length === 10) {
-      setStep(2);
-    } else {
-      alert("Enter valid 10 digit number");
+  // ✅ Correct Recaptcha Setup (Firebase v9 syntax)
+  const setupRecaptcha = () => {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: () => {
+            console.log("Recaptcha verified");
+          }
+        }
+      );
     }
   };
 
-  const handleVerify = () => {
-    if (otp.length === 6) {
+  const handleContinue = async () => {
+    const cleanedNumber = mobile.replace(/\s/g, "");
+
+    if (cleanedNumber.length !== 10) {
+      alert("Enter valid 10 digit number");
+      return;
+    }
+
+    try {
+      setupRecaptcha();
+
+      const appVerifier = window.recaptchaVerifier;
+      const fullPhoneNumber = "+91" + cleanedNumber;
+
+      const result = await signInWithPhoneNumber(
+        auth,
+        fullPhoneNumber,
+        appVerifier
+      );
+
+      setConfirmationResult(result);
+      setStep(2);
+    } catch (error) {
+      console.log("Firebase Error Code:", error.code);
+      console.log("Firebase Error Message:", error.message);
+      alert(error.message);
+    }
+  };
+
+  const handleVerify = async () => {
+    if (!confirmationResult) return;
+
+    try {
+      await confirmationResult.confirm(otp);
       setShowSuccess(true);
-    } else {
-      alert("Enter 6 digit OTP");
+    } catch (error) {
+      alert("Invalid OTP");
     }
   };
 
   return (
     <motion.div
-     className="signup-wrapper"
-     initial={{ opacity: 0, y: 40 }}
-     animate={{ opacity: 1, y: 0 }}
-     exit={{ opacity: 0, y: -40 }}
-     transition={{ duration: 0.4 }}
+      className="signup-wrapper"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -40 }}
+      transition={{ duration: 0.4 }}
     >
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-5 col-12">
-
             <div className="signup-card">
 
               {step === 1 && (
                 <>
-                  <h2 className="mb-3 fw-bold">Open Your Trading Account</h2>
-                  <p className="mb-4">
-                    Create your free account and start investing smarter.
-                  </p>
+                  <h2 className="mb-3 fw-bold">
+                    Open Your Trading Account
+                  </h2>
 
                   <div className="input-group mb-3">
                     <span className="input-group-text">+91</span>
@@ -74,17 +118,17 @@ const Signup = () => {
                     className="btn signup-btn w-100"
                     onClick={handleContinue}
                   >
-                    Continue →
+                    Send OTP →
                   </button>
+
+                  {/* Required container for reCAPTCHA */}
+                  <div id="recaptcha-container"></div>
                 </>
               )}
 
               {step === 2 && (
-                <div className="otp-screen">
+                <>
                   <h2 className="mb-3 fw-bold">Verify OTP</h2>
-                  <p className="mb-4">
-                    Enter the 6-digit OTP sent to +91 {mobile}
-                  </p>
 
                   <input
                     type="text"
@@ -94,37 +138,28 @@ const Signup = () => {
                     onChange={(e) =>
                       setOtp(e.target.value.replace(/\D/g, ""))
                     }
-                    placeholder="Enter OTP"
+                    placeholder="Enter 6-digit OTP"
                   />
 
                   <button
-                    className="btn signup-btn w-100 mb-2"
+                    className="btn signup-btn w-100"
                     onClick={handleVerify}
                   >
                     Verify →
                   </button>
-
-                  <button
-                    className="btn btn-light w-100"
-                    onClick={() => setStep(1)}
-                  >
-                    ← Back
-                  </button>
-                </div>
+                </>
               )}
 
             </div>
-
           </div>
         </div>
       </div>
 
-      {/* ✅ SUCCESS MODAL */}
       {showSuccess && (
         <div className="success-overlay">
           <div className="success-modal">
             <h3>🎉 Account Created!</h3>
-            <p>Your trading account has been successfully created.</p>
+            <p>Phone number verified successfully.</p>
             <button
               className="btn signup-btn w-100 mt-3"
               onClick={() => setShowSuccess(false)}
@@ -134,7 +169,6 @@ const Signup = () => {
           </div>
         </div>
       )}
-
     </motion.div>
   );
 };
