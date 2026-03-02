@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -23,11 +24,13 @@ function Hero() {
             was developed as an academic initiative focused on learning,
             experimentation, and simulation.
           </p>
+
           <p>
             By combining clean interfaces with structured market concepts,
             Nivesha aims to demonstrate how modern financial platforms are built
             and how users interact with real-world trading systems.
           </p>
+
           <p>
             Thousands of learners and aspiring developers explore simulated
             workflows, market visualizations, and platform features through
@@ -41,14 +44,16 @@ function Hero() {
             community-driven exploration, and transparent access to educational
             financial resources.
           </p>
+
           <p>
-            <a href="" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none" }}>
               Nivesha Labs
-            </a>
+            </Link>
             , our experimental and research-focused initiative, explores ideas
             at the intersection of finance, technology, and user experience,
             supporting innovation in financial education.
           </p>
+
           <p>
             The platform continues to evolve as new concepts, tools, and
             simulations are introduced to help users better understand how

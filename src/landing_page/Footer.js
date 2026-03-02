@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -6,90 +7,67 @@ function Footer() {
       <div className="container border-top mt-5">
         <div className="row mt-5">
           <div className="col">
-            <img src="/Media/images/images/Nnivesha.png" style={{ width: "50%" }} />
+            <img
+              src="/Media/images/images/Nnivesha.png"
+              style={{ width: "50%" }}
+              alt="Nivesha Logo"
+            />
             <p>
               &copy; 2024 – 2025, Nivesha Technologies Pvt. Ltd. All rights
               reserved.
             </p>
           </div>
+
+          {/* Company */}
           <div className="col">
-            <p>Company</p>
-            <a href="">About</a>
-            <br />
-            <a href="">Products</a>
-            <br />
-            <a href="">Pricing</a>
-            <br />
-            <a href="">Referral programme</a>
-            <br />
-            <a href="">Careers</a>
-            <br />
-            <a href="">Technology</a>
-            <br />
-            <a href="">Press & media</a>
-            <br />
-            <a href="">Sustainability initiatives</a>
-            <br />
+            <p><strong>Company</strong></p>
+            <Link to="/about">About</Link><br />
+            <Link to="/products">Products</Link><br />
+            <Link to="/pricing">Pricing</Link><br />
+            <Link to="/referral">Referral programme</Link><br />
+            <Link to="/careers">Careers</Link><br />
+            <Link to="/technology">Technology</Link><br />
+            <Link to="/press">Press & media</Link><br />
+            <Link to="/sustainability">Sustainability initiatives</Link><br />
           </div>
+
+          {/* Support */}
           <div className="col">
-            <p>Support</p>
-            <a href="">Contact</a>
-            <br />
-            <a href="">Help center</a>
-            <br />
-            <a href="">community forum</a>
-            <br />
-            <a href="">List of charges</a>
-            <br />
-            <a href="">Downloads & resources</a>
-            <br />
+            <p><strong>Support</strong></p>
+            <Link to="/contact">Contact</Link><br />
+            <Link to="/support">Help center</Link><br />
+            <Link to="/community">Community forum</Link><br />
+            <Link to="/pricing">List of charges</Link><br />
+            <Link to="/resources">Downloads & resources</Link><br />
           </div>
+
+          {/* Account */}
           <div className="col">
-            <p>Account</p>
-            <a href="">Open an account</a>
-            <br />
-            <a href="">Fund transfer</a>
-            <br />
-            <a href="">Learning challenge</a>
-            <br />
+            <p><strong>Account</strong></p>
+            <Link to="/signup">Open an account</Link><br />
+            <Link to="/fund-transfer">Fund transfer</Link><br />
+            <Link to="/learning">Learning challenge</Link><br />
           </div>
         </div>
+
+        {/* Legal Text */}
         <div className="mt-5 text-muted" style={{ fontSize: "14px" }}>
           <p>
-            Nivesha Technologies Pvt. Ltd. is a technology-driven platform developed with
-            the objective of providing users with intuitive tools for learning,
-            simulation, and a deeper understanding of financial markets. The platform
-            focuses on demonstrating how modern trading and investment systems operate,
-            including market data visualization, portfolio analysis, and user interface
-            design commonly used in financial applications.This platform has been created solely as a learning-oriented project to
-            demonstrate concepts related to financial technology and modern web
-            application design. Nivesha is not a registered brokerage service and does not
+            Nivesha Technologies Pvt. Ltd. is a technology-driven platform developed
+            to provide intuitive tools for learning and simulation of financial markets.
+            This platform is created solely as a learning-oriented project and does not
             offer live trading, investment advisory, or real-time market execution.
           </p>
 
           <p>
-            Procedure to file a complaint on SEBI SCORES: Register on SCORES
-            portal. Mandatory details for filing complaints on SCORES: Name,
-            PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
-            Communication, Speedy redressal of the grievances
+            Investments in securities market are subject to market risks; read all
+            related documents carefully before investing.
           </p>
 
           <p>
-            Investments in securities market are subject to market risks; read
-            all the related documents carefully before investing.
-          </p>
-
-          <p>
-            "Prevent unauthorised transactions in your account. Update your
-            mobile numbers/email IDs with your stock brokers. Receive
-            information of your transactions directly from Exchange on your
-            mobile/email at the end of the day. Nivesha does not provide stock tips, guaranteed returns, or personalized
-            financial advice of any kind. The platform is not intended to influence or
-            guide real investment decisions, and users should not treat any information
-            displayed here as professional or financial guidance. Any resemblance to real
-            platforms, companies, products, or services is purely coincidental and is used
-            only for educational illustration and design reference purposes.
-
+            Nivesha does not provide stock tips, guaranteed returns, or personalized
+            financial advice of any kind. The platform is strictly for educational
+            and demonstration purposes.
           </p>
         </div>
       </div>
