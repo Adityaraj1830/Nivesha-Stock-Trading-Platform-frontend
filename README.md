@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# 🚀 Nivesha
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 💹 Full Stack Stock Trading Platform
 
-## Available Scripts
+Nivesha is a modern full-stack stock trading web application designed to simulate a real trading environment.
+It allows users to explore stock data, track holdings, manage positions, and place orders through a clean and interactive interface.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+🌐 **Live Application**
+https://nivesha-stock-trading-platform-fron.vercel.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ What You Can Do
 
-### `npm test`
+* 📊 View your stock holdings in a structured table
+* 📈 Track positions and performance visually
+* 🛒 Place buy and sell orders
+* 📉 Analyze stock data through charts
+* ⚡ Experience a smooth and responsive UI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧠 How It Works
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application follows a full-stack architecture:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* The **frontend** provides an interactive UI
+* The **dashboard** visualizes trading data
+* The **backend API** handles all logic and data flow
+* **MongoDB** stores user and stock data
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+All components are connected to simulate a real-world trading system.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠️ Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Frontend & Dashboard**
+React.js • Axios • Chart.js • CSS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Backend**
+Node.js • Express.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Database**
+MongoDB Atlas
 
-## Learn More
+**Deployment**
+Vercel (Frontend & Dashboard)
+Render (Backend)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔗 Backend API
 
-### Code Splitting
+https://nivesha-stock-trading-platform-backend-1.onrender.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 👨‍💻 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Aditya Raj
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## ⭐ Support
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you like this project, consider giving it a ⭐ — it helps a lot!
